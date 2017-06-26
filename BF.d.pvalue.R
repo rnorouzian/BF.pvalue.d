@@ -13,10 +13,6 @@ panel.hist = function(x, ...)
   rect(breaks[-nB], 0, breaks[-1], y, ...)
 }
 
-#pairs(USJudgeRatings[1:5], panel = panel.smooth,
- #     cex = 1.5, pch = 24, bg = "light blue",
-  #    diag.panel = panel.hist, cex.labels = 2, font.labels = 2)
-
 ######### Correlation Panel Function for pairs() #########
 
 panel.cor = function(x, y, digits = 2, prefix = "", cex.cor, ...)
@@ -29,13 +25,10 @@ panel.cor = function(x, y, digits = 2, prefix = "", cex.cor, ...)
   if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
   text(0.5, 0.5, txt, cex = cex.cor) #cex = cex.cor*r
 }
-#pairs(USJudgeRatings, lower.panel = panel.smooth, upper.panel = panel.cor)
-
 
 ####################################################################################
 ## Function to economically compute BF10, Cohen's d, and p.value from the literature
 ####################################################################################
-
 
 BF.d.pvalue = Vectorize(function(t, n1, n2 = NA, scale = sqrt(2)/2, log = FALSE, prior = "Cauchy"){
   
