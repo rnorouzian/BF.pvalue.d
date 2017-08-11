@@ -29,26 +29,19 @@ ttest = function(n1 = 5, n2 = 5,
       beta <- qnorm(alpha)
       q <- c(min.score, max.score)
       
-      mu.sigma = solve(cbind(1L, beta), q)
+  mu.sigma = solve(cbind(1L, beta), q)
       
       mean = mu.sigma[[1]]
-      sd = mu.sigma[[2]]
+        sd = mu.sigma[[2]]
       
-        coeff = effect.size*sd
-        
-        aa1 = mean + .1*mean 
-        aa2 = mean + .5*mean
-        
-        bb1 = mean 
-        bb2 = mean + .3*mean
-        
-        cc1 = aa1 - coeff 
-        cc2 = aa2 - coeff
-        
-        mean.g2 = min(bb2, cc2)
-        mean.g1 = mean.g2 + coeff
+        aa = mean + .5*mean
+        bb = mean + .3*mean
+        cc = aa - coeff
+     
+   mean.g2 = min(bb, cc)
+   mean.g1 = mean.g2 + coeff
       
-      TRUE.d = (mean.g1 - mean.g2) / sd
+    TRUE.d = (mean.g1 - mean.g2) / sd
     }
     
     if(n1 < 2L) { n1 = 2L } ; if(n2 < 2L) { n2 = 2L }
