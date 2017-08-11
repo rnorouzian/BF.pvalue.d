@@ -185,13 +185,10 @@ par(xaxt = "s") ; if(researcher.tool) axis(1, at = min(y):max(y), font = 2) else
 
     gpos = rev(cumsum(rev(tapply(groups, groups, length)) + 2) - 1)
     
-    decimal <- function(x, k){
-      
+    decimal <- function(x, k){     
       if(is.character(x)) {
         return(x)
-        
       }else{
-        
         format(round(x, k), nsmall = k, scientific =
                  ifelse(x >= 1e5 || x <= -1e5 || x <= 1e-5 & x >= -1e-5, TRUE, FALSE) )
        } 
