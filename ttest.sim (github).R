@@ -50,7 +50,7 @@ ttest = function(n1 = 5, n2 = 5,
         
         mean.g1 = mean.g2 + coeff
       
-      TRUE.d = (mean.g1-mean.g2) / sd
+      TRUE.d = (mean.g1 - mean.g2) / sd
     }
     
     if(n1 < 2L) { n1 = 2L } ; if(n2 < 2L) { n2 = 2L }
