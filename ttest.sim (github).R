@@ -31,8 +31,8 @@ ttest = function(n1 = 5, n2 = 5,
       
       mu.sigma = solve(cbind(1L, beta), q)
       
-      mean = mu.sigma[1]
-      sd = mu.sigma[2]
+      mean = mu.sigma[[1]]
+      sd = mu.sigma[[2]]
       
         coeff = effect.size*sd
         
@@ -45,9 +45,7 @@ ttest = function(n1 = 5, n2 = 5,
         cc1 = aa1 - coeff 
         cc2 = aa2 - coeff
         
-        m1 = max(bb1, cc1) 
         mean.g2 = min(bb2, cc2)
-        
         mean.g1 = mean.g2 + coeff
       
       TRUE.d = (mean.g1 - mean.g2) / sd
