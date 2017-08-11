@@ -25,8 +25,7 @@ ttest = function(n1 = 5, n2 = 5,
     
     if(!researcher.tool){
       
-     alpha = c(1e-10, .9999999999)
-      beta = qnorm(alpha)
+      beta = qnorm(c(1e-10, .9999999999))
          q = c(min.score, max.score)
       
   mu.sigma = solve(cbind(1L, beta), q)
