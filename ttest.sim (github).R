@@ -34,6 +34,8 @@ ttest = function(n1 = 5, n2 = 5,
       mean = mu.sigma[[1]]
         sd = mu.sigma[[2]]
       
+     coeff = effect.size*sd
+      
         aa = mean + .5*mean
         bb = mean + .3*mean
         cc = aa - coeff
