@@ -57,8 +57,7 @@ ttest = function(n1 = 5, n2 = 5,
     
     if(!paired & !researcher.tool){  
       
-      y = as.vector(unlist(mapply(FUN = rnorm, n = c(n1, n2), mean = c(mean.g1, mean.g2), sd = c(sd, sd) )))
-      
+      y = as.vector(unlist(mapply(FUN = rnorm, n = c(n1, n2), mean = c(mean.g1, mean.g2), sd = c(sd, sd) )))   
     }
     
     if(paired & !researcher.tool){
@@ -140,7 +139,6 @@ ttest = function(n1 = 5, n2 = 5,
     } else { 
       
       groups = factor(rep(1:2, times = c(n1, n2)), labels = c("Post-Test", "Pre-Test") )
-      
     }
    
     mean.g1 = if(!paired)  mean(y[groups == "Treatment"])  else   mean(y[groups == "Post-Test"])  
@@ -172,7 +170,6 @@ ttest = function(n1 = 5, n2 = 5,
                font = 2, pch = 19, gcolor = c("blue", "red"), xlab = "Participants' Scores",
                pt.cex = ifelse(n1 <= 20 || n2 <= 20, 1.5, 1), labels = c(lab1, lab2), main = NA,
                cex.main = 2)
-      
     } else {
       
       par(font.lab = 2, xaxt = "n", ...)
@@ -240,25 +237,21 @@ par(xaxt = "s") ; if(researcher.tool) axis(1, at = min(y):max(y), font = 2) else
       t.value.sim[i] <- a$t.value
       
       Sys.sleep(sim.time)  
-      
     }
     
     cbind("TRUE.Cohen.d" = a$TRUE.d, "Cohen.d" = decimal(Cohend.sim, 2), "Mean.diff" = decimal(mean.diff.sim, 2), 
           t.value = decimal(t.value.sim, 2), "Cohend.sd" = decimal(sd(Cohend.sim), 2), 
           "Mean.diff.sd" = decimal(sd(mean.diff.sim), 2),
           "Cohend.Range" = decimal(max(Cohend.sim) - min(Cohend.sim), 2), "Mean.diff.Range" = 
-            decimal(max(mean.diff.sim) - min(mean.diff.sim), 2))
-    
+            decimal(max(mean.diff.sim) - min(mean.diff.sim), 2))   
   } else {
     
     b = ttest.sim()
     
     list(t.value = b$t.value, Cohend = b$Cohend, "TRUE.Cohen's d" = b$TRUE.d, p.value = b$p.value)
-    }
-  
+    }  
 }
-
 #Example of use:
 ttest(n1 = 30, n2 = 30, sim.time = .7, min.score = 0, max.score = 20, 
-      simulation = FALSE, n.sim = 2, paired = FALSE, subjects = FALSE, descriptives = TRUE,
-      lcolor = "gray70", researcher.tool = FALSE, effect.size = 0)
+      simulation = FALSE, n.sim = 2, descriptives = TRUE,
+      researcher.tool = FALSE, effect.size = 0)
