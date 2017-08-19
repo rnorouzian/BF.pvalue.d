@@ -75,13 +75,13 @@ ttest = function(n1 = 5, n2 = 5,
       
       p1 = .5 ; p2 = .5
       
-      y = as.vector(unlist(mapply(FUN = rbinom, n = c(n1, n2), size = c(max.score, max.score), prob = c(p1, p2))))
+       y = as.vector(unlist(mapply(FUN = rbinom, n = c(n1, n2), size = c(max.score, max.score), prob = c(p1, p2))))
     
       m1 = max.score*p1
       m2 = max.score*p2
-      sd1 = sqrt(m1*(1-p1))
-      sd2 = sqrt(m2*(1-p2))
-      TRUE.d = (m1-m2) / sqrt((((n1 - 1)*((sd1^2))) + (n2 - 1)*((sd2^2)))/((n1+n2)-2))
+     sd1 = sqrt(m1*(1-p1))
+     sd2 = sqrt(m2*(1-p2))
+  TRUE.d = (m1-m2) / sqrt((((n1 - 1)*((sd1^2))) + (n2 - 1)*((sd2^2)))/((n1+n2)-2))
     }
     
     if(researcher.tool & paired){
