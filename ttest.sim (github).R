@@ -99,13 +99,13 @@ ttest = function(n1 = 5, n2 = 5,
            q = .5
          rho = correlation
          
-         m1 = max.score*p
-         m2 = max.score*q
+          m1 = max.score*p
+          m2 = max.score*q
          sd1 = sqrt(m1*(1-p))
          sd2 = sqrt(m2*(1-q))
          TRUE.d = (m1-m2) / sqrt((((n1 - 1)*((sd1^2))) + (n2 - 1)*((sd2^2)))/((n1+n2)-2))
       
-      a.0 <- a(rho, p, q)
+       a.0 <- a(rho, p, q)
       prob <- c(`(0,0)`= a.0, `(1,0)`=1-q-a.0, `(0,1)`= 1-p-a.0, `(1,1)`= a.0+p+q-1)
       if (min(prob) < 0) {
         print(prob)
@@ -216,17 +216,17 @@ par(xaxt = "s") ; if(researcher.tool) axis(1, at = min(y):max(y), font = 2) else
     
     if(missing(sim.time)) sim.time = .7
     
-    Cohend.sim = numeric(n.sim)
+       Cohend.sim = numeric(n.sim)
     mean.diff.sim = numeric(n.sim)
-    t.value.sim = numeric(n.sim)
+      t.value.sim = numeric(n.sim)
     
     for(i in 1:n.sim){
       
       a = ttest.sim()
       
-      Cohend.sim[i] <- a$Cohend
+         Cohend.sim[i] <- a$Cohend
       mean.diff.sim[i] <- a$mean.diff
-      t.value.sim[i] <- a$t.value
+        t.value.sim[i] <- a$t.value
       
       Sys.sleep(sim.time)  
     }
