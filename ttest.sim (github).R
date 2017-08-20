@@ -149,8 +149,8 @@ ttest = function(n1 = 5, n2 = 5,
     
     Cohend = t.value / sqrt(N) 
     
-    lab1 = paste0("subj-", rev(1L:n1) )
-    lab2 = paste0("subj-", rev(1L:n2) )
+    lab1 = if(n1 < 10 || n2 < 10) paste0("subj #", rev(1L:n1)) else c(paste0("subj #", rev(n1)[1]), paste0(rep(".", n1 - 2)), paste0("subj #", 1L))
+    lab2 = if(n1 < 10 || n2 < 10) paste0("subj #", rev(1L:n2)) else c(paste0("subj #", rev(n2)[1]), paste0(rep(".", n2 - 2)), paste0("subj #", 1L))
     
     original.par = par(no.readonly = TRUE)
     on.exit(par(original.par))
